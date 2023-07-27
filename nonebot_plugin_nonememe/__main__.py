@@ -20,7 +20,7 @@ async def finish_with_meme(meme_item: MemeItem) -> NoReturn:
             Text(f"# {meme_item.name}"),
             Image(image_bytes),
         ],
-    ).finish()
+    ).finish(reply=True)
 
 
 cmd_meme = on_command("nonememe", aliases={"nb草图", "nb梗图"})
