@@ -64,7 +64,6 @@ async def init_meme_list():
     logger.opt(colors=True).success(
         f"Succeed to init meme list, Loaded <y>{len(meme_list)}</y> memes",
     )
-    print(meme_list)
 
 
 driver = get_driver()
