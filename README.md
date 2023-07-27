@@ -3,7 +3,7 @@
 <div align="center">
 
 <a href="https://v2.nonebot.dev/store">
-  <img src="https://raw.githubusercontent.com/A-kirami/nonebot-plugin-template/resources/nbp_logo.png" width="180" height="180" alt="NoneBotPluginLogo">
+  <img src="https://raw.githubusercontent.com/NoneMeme/NoneMeme/main/static/favicon.png" width="180" height="180" alt="NoneBotPluginLogo">
 </a>
 
 <p>
@@ -107,12 +107,7 @@ plugins = [
 
 ## ⚙️ 配置
 
-在 nonebot2 项目的`.env`文件中添加下表中的必填配置
-
-|  配置项  | 必填 | 默认值 |   说明   |
-| :------: | :--: | :----: | :------: |
-| 配置项 1 |  是  |   无   | 配置说明 |
-| 配置项 2 |  否  |   无   | 配置说明 |
+[config.py](./nonebot_plugin_nonememe/config.py)
 
 ## 🎉 使用
 

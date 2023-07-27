@@ -6,7 +6,7 @@ groups = ["default"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:c7028211e935ce78bfcb2ef821dc0b2125adec73782718003a7f2f66cdd6908c"
+content_hash = "sha256:a8a3e00ee2ef5c8484b0938e14f86cf6cdf054f6f8e3c4ad0c76d192df2e6076"
 
 [[package]]
 name = "anyio"
@@ -103,6 +103,15 @@ summary = "Internationalized Domain Names in Applications (IDNA)"
 files = [
     {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
     {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
+]
+
+[[package]]
+name = "json5"
+version = "0.9.14"
+summary = "A Python implementation of the JSON5 data format."
+files = [
+    {file = "json5-0.9.14-py2.py3-none-any.whl", hash = "sha256:740c7f1b9e584a468dbb2939d8d458db3427f2c93ae2139d05f47e453eae964f"},
+    {file = "json5-0.9.14.tar.gz", hash = "sha256:9ed66c3a6ca3510a976a9ef9b8c0787de24802724ab1860bc0153c7fdd589b02"},
 ]
 
 [[package]]
