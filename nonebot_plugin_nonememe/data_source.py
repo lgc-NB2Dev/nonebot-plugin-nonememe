@@ -94,6 +94,7 @@ async def update_meme_list():
                 indent=2,
                 ensure_ascii=False,
             ),
+            encoding="u8",
         )
 
     except Exception:
