@@ -17,8 +17,8 @@ DATA_DIR = Path.cwd() / "data" / "nonememe"
 LIST_CACHE_PATH = DATA_DIR / "cached_list.json"
 MEME_CACHE_DIR = DATA_DIR / "cache"
 
-if not DATA_DIR.exists():
-    DATA_DIR.mkdir(parents=True)
+if not MEME_CACHE_DIR.exists():
+    MEME_CACHE_DIR.mkdir(parents=True)
 # if MEME_CACHE_DIR.exists():
 #     shutil.rmtree(MEME_CACHE_DIR)
 # MEME_CACHE_DIR.mkdir(parents=True)
