@@ -10,16 +10,13 @@ from nonebot.typing import T_State
 from nonebot_plugin_saa import Image, MessageFactory, Text
 
 from .config import config
-from .data_source import MemeItem, fetch_meme, meme_list, search_meme_items
+from .data_source import MemeItem, get_meme, meme_list, search_meme_items
 
 
 async def finish_with_meme(meme_item: MemeItem) -> NoReturn:
-    image_bytes = await fetch_meme(meme_item.path)
+    image_bytes = await get_meme(meme_item)
     await MessageFactory(
-        [
-            Text(f"# {meme_item.name}"),
-            Image(image_bytes),
-        ],
+        [Text(f"# {meme_item.name}"), Image(image_bytes)],
     ).finish(reply=True)
 
 
@@ -38,7 +35,7 @@ async def _(matcher: Matcher, state: T_State, arg_msg: Message = CommandArg()):
 
     searched = search_meme_items(arg, use_regex=use_regex)
     if not searched:
-        await matcher.finish("没有找到相关 NoneMeme")
+        await matcher.finish("没有找到相关图片")
     if len(searched) == 1:
         await finish_with_meme(searched[0])
 

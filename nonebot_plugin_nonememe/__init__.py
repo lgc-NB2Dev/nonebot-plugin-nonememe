@@ -1,12 +1,13 @@
 from nonebot import require
 from nonebot.plugin import PluginMetadata
 
+require("nonebot_plugin_apscheduler")
 require("nonebot_plugin_saa")
 
 from . import __main__ as __main__  # noqa: E402
 from .config import ConfigModel  # noqa: E402
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 __plugin_meta__ = PluginMetadata(
     name="NoneMeme",
     description="NoneBot 群大佬的日常",

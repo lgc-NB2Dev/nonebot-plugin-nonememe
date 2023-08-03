@@ -1,14 +1,17 @@
 [project]
 name = "nonebot-plugin-nonememe"
-version = "0.1.1.post1"
+version = "0.2.0"
 description = "The daily life of the NoneBot group members"
 authors = [{ name = "student_2333", email = "lgc2333@126.com" }]
 dependencies = [
     "nonebot2>=2.0.0",
-    "pydantic>=1.10.4,<2",
     "nonebot-plugin-send-anything-anywhere>=0.2.7",
+    "nonebot-plugin-apscheduler>=0.3.0",
+    "pydantic>=1.10.4,<2",
     "httpx>=0.24.1",
     "json5>=0.9.14",
+    "anyio>=3.7.1",
+    "typing-extensions>=4.7.1",
 ]
 requires-python = ">=3.8,<4.0"
 readme = "README.md"
