@@ -1,5 +1,5 @@
-from typing import Optional, TypedDict, Union
-from typing_extensions import NotRequired
+from typing import Optional, Union
+from typing_extensions import NotRequired, TypedDict
 
 from nonebot import get_driver
 from pydantic import BaseModel
