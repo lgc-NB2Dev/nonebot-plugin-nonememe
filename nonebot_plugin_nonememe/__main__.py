@@ -14,7 +14,11 @@ from .data_source import MemeItem, get_meme, meme_list, search_meme_items
 
 
 async def finish_with_meme(meme_item: MemeItem) -> NoReturn:
-    image_bytes = await get_meme(meme_item)
+    try:
+        image_bytes = await get_meme(meme_item)
+    except Exception:
+        logger.exception("Failed to get meme")
+        await MessageFactory("获取图片失败，请检查后台日志").finish()
     await MessageFactory(
         [Text(f"# {meme_item.name}"), Image(image_bytes)],
     ).finish(reply=True)
