@@ -22,7 +22,7 @@ class ConfigModel(BaseModel):
         "https://raw.githubusercontent.com/NoneMeme/NoneMeme/main"
     )
 
-    nonememe_update_cron: CronDict = {"hour": 1}
+    nonememe_update_cron: CronDict = {"hour": "*/1"}
     nonememe_search_limit: int = 5
 
 

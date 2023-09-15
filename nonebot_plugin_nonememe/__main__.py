@@ -1,7 +1,7 @@
 import random
 from typing import List, NoReturn
 
-from nonebot import on_command, logger
+from nonebot import logger, on_command
 from nonebot.adapters import Message
 from nonebot.internal.adapter import Event
 from nonebot.matcher import Matcher
