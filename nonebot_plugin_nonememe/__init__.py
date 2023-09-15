@@ -24,6 +24,8 @@ __plugin_meta__ = PluginMetadata(
         "~kaiheila",
         "~qqguild",
         "~telegram",
+        "~feishu",
+        "~red",
     },
     extra={"License": "MIT", "Author": "student_2333"},
 )
