@@ -38,7 +38,7 @@ def search_meme_items(
     use_regex: bool = False,  # noqa: FBT001
 ) -> List[MemeItem]:
     if use_regex:
-        pattern = re.compile(keyword, re.I)
+        pattern = re.compile(keyword, re.IGNORECASE)
         return [item for item in meme_list if pattern.search(item.name)]
 
     kws = keyword.lower().split()

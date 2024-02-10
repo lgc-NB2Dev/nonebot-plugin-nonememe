@@ -50,7 +50,9 @@ async def _(matcher: Matcher, state: T_State, arg_msg: Message = CommandArg()):
 
     list_text = "\n".join(f"{i }. {item.name}" for i, item in enumerate(searched, 1))
     over_len_tip = (
-        f"\nTip：搜索到的结果过多，仅显示前 {config.nonememe_search_limit} 条" if over_length else ""
+        f"\nTip：搜索到的结果过多，仅显示前 {config.nonememe_search_limit} 条"
+        if over_length
+        else ""
     )
     await matcher.pause(f"找到多张图片，请发送序号选择：\n{list_text}{over_len_tip}")
 
