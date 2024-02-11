@@ -10,7 +10,7 @@ dependencies = [
     "pydantic>=1.10.0,<2",  
     "httpx>=0.24.1",
     "json5>=0.9.14",
-    "anyio>=3.7.1",
+    "anyio>=3.6.2",
     "typing-extensions>=4.7.1",
 ]
 requires-python = ">=3.9,<4.0"
