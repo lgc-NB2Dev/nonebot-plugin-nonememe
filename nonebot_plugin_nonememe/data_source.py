@@ -8,8 +8,9 @@ import anyio
 import json5
 from httpx import AsyncClient
 from nonebot import get_driver, logger
+from nonebot.compat import type_validate_json
 from nonebot_plugin_apscheduler import scheduler
-from pydantic import BaseModel, parse_raw_as
+from pydantic import BaseModel
 
 from .config import config
 
@@ -102,7 +103,7 @@ async def update_meme_list():
             raise
 
         logger.warning("Failed to fetch meme list, use cache instead")
-        got_meme_list = parse_raw_as(
+        got_meme_list = type_validate_json(
             List[MemeItem],
             await cache_json_path.read_text(encoding="u8"),
         )

@@ -2,12 +2,12 @@ import random
 from typing import List, NoReturn
 
 from nonebot import logger, on_command
-from nonebot.adapters import Message
-from nonebot.internal.adapter import Event
+from nonebot.adapters import Event, Message
+from nonebot.exception import FinishedException
 from nonebot.matcher import Matcher
 from nonebot.params import CommandArg
 from nonebot.typing import T_State
-from nonebot_plugin_saa import Image, MessageFactory, Text
+from nonebot_plugin_alconna.uniseg import UniMessage
 
 from .config import config
 from .data_source import MemeItem, get_meme, meme_list, search_meme_items
@@ -16,12 +16,16 @@ from .data_source import MemeItem, get_meme, meme_list, search_meme_items
 async def finish_with_meme(meme_item: MemeItem) -> NoReturn:
     try:
         image_bytes = await get_meme(meme_item)
-    except Exception:
+    except Exception as e:
         logger.exception("Failed to get meme")
-        await MessageFactory("获取图片失败，请检查后台日志").finish()
-    await MessageFactory(
-        [Text(f"# {meme_item.name}"), Image(image_bytes)],
-    ).finish(reply=True)
+        await UniMessage("获取图片失败，请检查后台日志").send()
+        raise FinishedException from e
+    await (
+        UniMessage.text(f"# {meme_item.name}")
+        .image(raw=image_bytes)
+        .send(reply_to=True)
+    )
+    raise FinishedException
 
 
 cmd_meme = on_command("nonememe", aliases={"nb草图", "nb梗图"})

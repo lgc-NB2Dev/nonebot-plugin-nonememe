@@ -1,13 +1,12 @@
 [project]
 name = "nonebot-plugin-nonememe"
-version = "0.2.0.post4"
+dynamic = ["version"]
 description = "The daily life of the NoneBot group members"
 authors = [{ name = "student_2333", email = "lgc2333@126.com" }]
 dependencies = [
     "nonebot2>=2.2.0",
-    "nonebot-plugin-send-anything-anywhere>=0.3.2",
+    "nonebot-plugin-alconna>=0.40.0rc1",
     "nonebot-plugin-apscheduler>=0.3.0",
-    "pydantic>=1.10.0,<2",  
     "httpx>=0.24.1",
     "json5>=0.9.14",
     "anyio>=3.6.2",
@@ -22,6 +21,10 @@ homepage = "https://github.com/lgc-NB2Dev/nonebot-plugin-nonememe"
 
 [tool.pdm.build]
 includes = []
+
+[tool.pdm.version]
+source = "file"
+path = "nonebot_plugin_nonememe/__init__.py"
 
 [build-system]
 requires = ["pdm-backend"]

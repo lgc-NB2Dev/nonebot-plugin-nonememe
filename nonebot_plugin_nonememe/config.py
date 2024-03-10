@@ -1,19 +1,19 @@
 from typing import Optional, Union
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
-from nonebot import get_driver
+from nonebot import get_plugin_config
 from pydantic import BaseModel
 
 
-class CronDict(TypedDict):
-    year: NotRequired[Union[str, int]]
-    month: NotRequired[Union[str, int]]
-    day: NotRequired[Union[str, int]]
-    week: NotRequired[Union[str, int]]
-    day_of_week: NotRequired[Union[str, int]]
-    hour: NotRequired[Union[str, int]]
-    minute: NotRequired[Union[str, int]]
-    second: NotRequired[Union[str, int]]
+class CronDict(TypedDict, total=False):
+    year: Union[str, int]
+    month: Union[str, int]
+    day: Union[str, int]
+    week: Union[str, int]
+    day_of_week: Union[str, int]
+    hour: Union[str, int]
+    minute: Union[str, int]
+    second: Union[str, int]
 
 
 class ConfigModel(BaseModel):
@@ -26,4 +26,4 @@ class ConfigModel(BaseModel):
     nonememe_search_limit: int = 5
 
 
-config: ConfigModel = ConfigModel.parse_obj(get_driver().config.dict())
+config = get_plugin_config(ConfigModel)
