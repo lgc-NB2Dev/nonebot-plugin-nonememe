@@ -1,5 +1,5 @@
 import random
-from typing import List, NoReturn
+from typing import NoReturn
 
 from nonebot import logger, on_command
 from nonebot.adapters import Event, Message
@@ -67,7 +67,7 @@ async def _(matcher: Matcher, state: T_State, event: Event):
     if arg in ("0", "q", "quit", "exit", "退出"):
         await matcher.finish("已退出选择")
 
-    searched: List[MemeItem] = state["items"]
+    searched: list[MemeItem] = state["items"]
     if not (arg.isdigit() and (0 <= (index := (int(arg) - 1)) < len(searched))):
         await matcher.reject("请输入正确的结果序号，退出选择请发送 `0`")
 

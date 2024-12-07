@@ -2,7 +2,7 @@ import json
 import re
 import urllib.parse
 from pathlib import Path
-from typing import List, cast
+from typing import cast
 
 import anyio
 import json5
@@ -31,13 +31,13 @@ class MemeItem(BaseModel):
     path: str
 
 
-meme_list: List[MemeItem] = []
+meme_list: list[MemeItem] = []
 
 
 def search_meme_items(
     keyword: str,
     use_regex: bool = False,  # noqa: FBT001
-) -> List[MemeItem]:
+) -> list[MemeItem]:
     if use_regex:
         pattern = re.compile(keyword, re.IGNORECASE)
         return [item for item in meme_list if pattern.search(item.name)]
@@ -52,7 +52,7 @@ def search_meme_items(
 
 
 async def fetch_meme(path: str) -> bytes:
-    async with AsyncClient(proxies=config.nonememe_proxy) as cli:
+    async with AsyncClient(proxy=config.nonememe_proxy) as cli:
         resp = await cli.get(f"{config.nonememe_repo_prefix}/{path}")
         return resp.content
 
@@ -72,13 +72,13 @@ def build_meme_item(meme_path: str) -> MemeItem:
     return MemeItem(name=path_obj.stem, suffix=path_obj.suffix, path=meme_path)
 
 
-async def fetch_meme_list() -> List[MemeItem]:
-    async with AsyncClient(proxies=config.nonememe_proxy) as cli:
+async def fetch_meme_list() -> list[MemeItem]:
+    async with AsyncClient(proxy=config.nonememe_proxy) as cli:
         resp = await cli.get(f"{config.nonememe_repo_prefix}/static/scripts/config.js")
         text = resp.text
         text = text[text.find("{") : text.rfind("}") + 1]
 
-    items: List[str] = cast(dict, json5.loads(text))["items"]
+    items: list[str] = cast(dict, json5.loads(text))["items"]
     return [build_meme_item(item) for item in items]
 
 
@@ -104,7 +104,7 @@ async def update_meme_list():
 
         logger.warning("Failed to fetch meme list, use cache instead")
         got_meme_list = type_validate_json(
-            List[MemeItem],
+            list[MemeItem],
             await cache_json_path.read_text(encoding="u8"),
         )
 
