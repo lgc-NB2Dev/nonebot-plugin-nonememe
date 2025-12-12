@@ -1,4 +1,3 @@
-from typing import Optional, Union
 from typing_extensions import TypedDict
 
 from nonebot import get_plugin_config
@@ -6,18 +5,18 @@ from pydantic import BaseModel
 
 
 class CronDict(TypedDict, total=False):
-    year: Union[str, int]
-    month: Union[str, int]
-    day: Union[str, int]
-    week: Union[str, int]
-    day_of_week: Union[str, int]
-    hour: Union[str, int]
-    minute: Union[str, int]
-    second: Union[str, int]
+    year: str | int
+    month: str | int
+    day: str | int
+    week: str | int
+    day_of_week: str | int
+    hour: str | int
+    minute: str | int
+    second: str | int
 
 
 class ConfigModel(BaseModel):
-    nonememe_proxy: Optional[str] = None
+    nonememe_proxy: str | None = None
     nonememe_repo_prefix: str = (
         "https://raw.githubusercontent.com/NoneMeme/NoneMeme/main"
     )

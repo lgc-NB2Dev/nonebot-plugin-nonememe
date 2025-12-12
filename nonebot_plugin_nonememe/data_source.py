@@ -78,7 +78,7 @@ async def fetch_meme_list() -> list[MemeItem]:
         text = resp.text
         text = text[text.find("{") : text.rfind("}") + 1]
 
-    items: list[str] = cast(dict, json5.loads(text))["items"]
+    items: list[str] = cast("dict", json5.loads(text))["items"]
     return [build_meme_item(item) for item in items]
 
 
